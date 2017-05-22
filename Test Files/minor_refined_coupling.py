@@ -87,4 +87,4 @@ for node in G.nodes():
 node_weight_dtype = [('node1', int), ('node2', str), ('edge_count', int)]
 node_weight = sorted(node_weight, key=lambda a_entry: a_entry[2])
 node_weight_np = np.asarray(node_weight)
-np.savetxt('class_weight', node_weight, delimiter='\t', fmt="%s")
+np.savetxt('class_weight.txt', node_weight, delimiter='\t', fmt="%s")
