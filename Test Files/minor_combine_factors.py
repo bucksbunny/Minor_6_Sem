@@ -41,3 +41,22 @@ print(dataframe.loc[dataframe['ClassCBO'] == max(dataframe.ClassCBO)])
 print("\n\nFor maximum History : ")
 print(dataframe.loc[dataframe['ClassHistory'] == max(dataframe.ClassHistory)])
 
+print("\n\nLargest 5 TotalScores")
+print(dataframe.TotalScore.nlargest(n=5))
+#print("\n\n")
+
+### Plot Graph
+TotalScore, counts = np.unique(ar=(dataframe.TotalScore+0.5).astype(int), return_counts=True)
+
+print("No of unique TotalScore range values : {}".format(len(TotalScore)))
+print("Max Total Score : {}".format(max(dataframe.TotalScore)))
+
+TotalMtx = zip(TotalScore, counts)
+
+plt.figure(2)
+plt.plot(TotalScore, counts)
+plt.xlabel('Total score')
+plt.ylabel('No. of classes')
+plt.title('Distribution curve of Total score')
+plt.savefig('dist_totalScore.png')
+plt.show()
