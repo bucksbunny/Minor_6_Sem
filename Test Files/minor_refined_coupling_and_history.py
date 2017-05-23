@@ -86,7 +86,6 @@ list_node_len = []
 for node in G.nodes():
     list_node_len.append(len(G[node]))
 
-print(list_node_len)
 max_val = max(list_node_len)
 min_val = min(list_node_len)
 
@@ -145,8 +144,8 @@ for i in np.arange(0, history_pts_np.shape[0]):
 max_val = max(history_dict.values())
 min_val = min(history_dict.values())
 
-print("max : {}".format(max_val))
-print("min : {}".format(min_val))
+print("Max History Score : {}".format(max_val))
+print("Min History Score : {}".format(min_val))
 
 for i in history_dict:
     history_dict[i] = float((history_dict[i])/(max_val-min_val)*100)
@@ -165,8 +164,8 @@ np.savetxt('history_list.txt', history_edges_np, delimiter='\t', fmt="%s")
 print("Number of classes in CBO List : {}".format(node_weight_np.shape[0]))
 print("Number of classes in History List : {}".format(history_edges_np.shape[0]))
 
-print(max(history_dict.values()))
-print(max(history_dict, key=history_dict.get))
+#print(max(history_dict.values()))
+#print(max(history_dict, key=history_dict.get))
 
 ### Distrubution graph of number of nodes vs History value
 
