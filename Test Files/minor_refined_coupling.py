@@ -88,3 +88,16 @@ node_weight_dtype = [('node1', int), ('node2', str), ('edge_count', int)]
 node_weight = sorted(node_weight, key=lambda a_entry: a_entry[2])
 node_weight_np = np.asarray(node_weight)
 np.savetxt('class_weight.txt', node_weight, delimiter='\t', fmt="%s")
+
+
+### Distrubution graph of number of nodes vs CBO value
+
+CBO_Vals, counts = np.unique(ar=node_weight_np[:,2].astype(int), return_counts=True)
+CBO_mtx = zip(CBO_Vals, counts)
+
+plt.plot(CBO_Vals, counts)
+plt.xlabel('CBO score')
+plt.ylabel('No. of classes')
+plt.title('Distribution curve of CBO score')
+plt.savefig('dist_CBO.png')
+plt.show()
